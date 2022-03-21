@@ -1,0 +1,2 @@
+helm-kubernetes-dashboard-5.3.1.tgz
+image-kubernetes-dashboard.tar.gz
