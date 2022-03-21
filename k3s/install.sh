@@ -33,3 +33,11 @@ mkdir -p /home/ubuntu/.kube
 cp /etc/rancher/k3s/k3s.yaml /home/ubuntu/.kube/config
 chown ubuntu:ubuntu /home/ubuntu/.kube/config
 chmod 600 /home/ubuntu/.kube/config
+
+# setup bash completion
+echo "source <(kubectl completion bash)" > /home/ubuntu/.bash_aliases
+echo "source <(helm completion bash)" >> /home/ubuntu/.bash_aliases
+chown ubuntu:ubuntu /home/ubuntu/.bash_aliases
+
+# restore directory
+popd

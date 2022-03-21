@@ -1,3 +1,0 @@
-helm-v3.8.1-linux-amd64.tar.gz
-k3s-airgap-images-amd64.tar.gz
-k3s

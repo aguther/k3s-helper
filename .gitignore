@@ -1,0 +1,6 @@
+dashboard/helm*.tgz
+dashboard/image*.tar*
+k3s/k3s
+k3s/helm*.tar.gz
+k3s/k3s*.tar.gz
+skopeo-*/
