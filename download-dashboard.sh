@@ -40,6 +40,46 @@ ${DOCKER_CMD} run \
     gzip \
     /local/dashboard/image-dashboard-v${K8S_DASHBOARD_IMAGE_VERSION}.tar
 
+# # download kubernetes-dashboard-web image
+# ${DOCKER_CMD} run \
+#     --rm \
+#     --env http_proxy=$http_proxy \
+#     --env https_proxy=$https_proxy \
+#     --volume $(pwd):/local \
+#     quay.io/skopeo/stable:latest \
+#     copy \
+#     docker://docker.io/kubernetesui/dashboard-web:v${K8S_DASHBOARD_WEB_IMAGE_VERSION} \
+#     docker-archive:/local/dashboard/image-dashboard-web-v${K8S_DASHBOARD_WEB_IMAGE_VERSION}.tar:docker.io/kubernetesui/dashboard-web:v${K8S_DASHBOARD_WEB_IMAGE_VERSION}
+# # compress image archive
+# ${DOCKER_CMD} run \
+#     --rm \
+#     --env http_proxy=$http_proxy \
+#     --env https_proxy=$https_proxy \
+#     --volume $(pwd):/local \
+#     centos:latest \
+#     gzip \
+#     /local/dashboard/image-dashboard-web-v${K8S_DASHBOARD_WEB_IMAGE_VERSION}.tar
+
+# # download kubernetes-dashboard-api image
+# ${DOCKER_CMD} run \
+#     --rm \
+#     --env http_proxy=$http_proxy \
+#     --env https_proxy=$https_proxy \
+#     --volume $(pwd):/local \
+#     quay.io/skopeo/stable:latest \
+#     copy \
+#     docker://docker.io/kubernetesui/dashboard-api:v${K8S_DASHBOARD_API_IMAGE_VERSION} \
+#     docker-archive:/local/dashboard/image-dashboard-api-v${K8S_DASHBOARD_API_IMAGE_VERSION}.tar:docker.io/kubernetesui/dashboard-api:v${K8S_DASHBOARD_API_IMAGE_VERSION}
+# # compress image archive
+# ${DOCKER_CMD} run \
+#     --rm \
+#     --env http_proxy=$http_proxy \
+#     --env https_proxy=$https_proxy \
+#     --volume $(pwd):/local \
+#     centos:latest \
+#     gzip \
+#     /local/dashboard/image-dashboard-api-v${K8S_DASHBOARD_API_IMAGE_VERSION}.tar
+
 # download metrics scraper image
 ${DOCKER_CMD} run \
     --rm \

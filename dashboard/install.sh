@@ -5,10 +5,14 @@ pushd "$(dirname "$(readlink -f "$0")")"
 
 # unzip image(s)
 gunzip /tmp/dashboard/image-dashboard.tar.gz
+#gunzip /tmp/dashboard/image-dashboard-web.tar.gz
+#gunzip /tmp/dashboard/image-dashboard-api.tar.gz
 gunzip /tmp/dashboard/image-metrics-scraper.tar.gz
 
 # load image(s)
 ctr images import /tmp/dashboard/image-dashboard.tar
+#ctr images import /tmp/dashboard/image-dashboard-web.tar
+#ctr images import /tmp/dashboard/image-dashboard-api.tar
 ctr images import /tmp/dashboard/image-metrics-scraper.tar
 
 # install helm chart
