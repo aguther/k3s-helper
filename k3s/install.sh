@@ -23,7 +23,7 @@ INSTALL_K3S_SKIP_DOWNLOAD=true ./k3s-install.sh
 chmod 644 /etc/rancher/k3s/k3s.yaml
 
 # extract helm
-tar xzf ./helm-v3.8.1-linux-amd64.tar.gz
+tar xzf ./helm-v3.12.2-linux-amd64.tar.gz
 # copy helm
 mv ./linux-amd64/helm /usr/local/bin/helm
 # clean up

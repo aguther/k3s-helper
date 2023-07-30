@@ -10,7 +10,7 @@ source ./versions.sh
 rm -f ./k3s/k3s ./k3s/k3s-*.tar.gz helm-*.tar.gz
 
 # download k3s
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \
@@ -21,7 +21,7 @@ docker run \
     -o /local/k3s/k3s
 
 # download k3s airgap images
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \
@@ -32,7 +32,7 @@ docker run \
     -o /local/k3s/k3s-airgap-images-amd64.tar.gz
 
 # download helm
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \

@@ -13,6 +13,7 @@ multipass exec k3s -- mkdir -p /tmp/dashboard
 multipass transfer ./dashboard/install.sh k3s:/tmp/dashboard/install.sh
 multipass transfer ./dashboard/dashboard.admin-user-role.yml k3s:/tmp/dashboard/dashboard.admin-user-role.yml
 multipass transfer ./dashboard/dashboard.admin-user.yml k3s:/tmp/dashboard/dashboard.admin-user.yml
+multipass transfer ./dashboard/dashboard.admin-user-secret.yml k3s:/tmp/dashboard/dashboard.admin-user-secret.yml
 multipass transfer ./dashboard/helm-kubernetes-dashboard-${K8S_DASHBOARD_HELM_CHART_VERSION}.tgz k3s:/tmp/dashboard/helm-kubernetes-dashboard.tgz
 multipass transfer ./dashboard/image-dashboard-v${K8S_DASHBOARD_IMAGE_VERSION}.tar.gz k3s:/tmp/dashboard/image-dashboard.tar.gz
 multipass transfer ./dashboard/image-metrics-scraper-v${K8S_DASHBOARD_METRICS_SCRAPER_IMAGE_VERSION}.tar.gz k3s:/tmp/dashboard/image-metrics-scraper.tar.gz

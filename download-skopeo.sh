@@ -4,7 +4,7 @@
 pushd "$(dirname "$(readlink -f "$0")")"
 
 # set version(s)
-UBUNTU_VERSION=${1:-20.04}
+UBUNTU_VERSION=${1:-22.04}
 source ./versions.sh
 
 # clean and create output directory
@@ -12,7 +12,7 @@ rm -rf ./skopeo-${UBUNTU_VERSION}
 mkdir -p ./skopeo-${UBUNTU_VERSION}
 
 # download containers-common
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \
@@ -23,7 +23,7 @@ docker run \
     -o /local/skopeo-${UBUNTU_VERSION}/containers-common_${CONTAINERS_COMMON_VERSION}_amd64.deb
 
 # download cri-o-runc
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \
@@ -34,7 +34,7 @@ docker run \
     -o /local/skopeo-${UBUNTU_VERSION}/cri-o-runc_${CRI_O_RUNC_VERSION}_amd64.deb
 
 # download skopeo
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \

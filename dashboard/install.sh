@@ -23,6 +23,7 @@ helm install \
 # deploy admin user
 kubectl apply -f /tmp/dashboard/dashboard.admin-user-role.yml
 kubectl apply -f /tmp/dashboard/dashboard.admin-user.yml
+kubectl apply -f /tmp/dashboard/dashboard.admin-user-secret.yml
 
 # patch service
 kubectl patch service \

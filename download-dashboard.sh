@@ -10,7 +10,7 @@ source ./versions.sh
 rm -f ./dashboard/helm* ./dashboard/image*
 
 # download helm chart for dashboard
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \
@@ -21,7 +21,7 @@ docker run \
     -o /local/dashboard/helm-kubernetes-dashboard-${K8S_DASHBOARD_HELM_CHART_VERSION}.tgz
 
 # download kubernetes-dashboard image
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \
@@ -31,7 +31,7 @@ docker run \
     docker://docker.io/kubernetesui/dashboard:v${K8S_DASHBOARD_IMAGE_VERSION} \
     docker-archive:/local/dashboard/image-dashboard-v${K8S_DASHBOARD_IMAGE_VERSION}.tar:docker.io/kubernetesui/dashboard:v${K8S_DASHBOARD_IMAGE_VERSION}
 # compress image archive
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \
@@ -40,8 +40,8 @@ docker run \
     gzip \
     /local/dashboard/image-dashboard-v${K8S_DASHBOARD_IMAGE_VERSION}.tar
 
-# download kubernetes-dashboard image
-docker run \
+# download metrics scraper image
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \
@@ -51,7 +51,7 @@ docker run \
     docker://docker.io/kubernetesui/metrics-scraper:v${K8S_DASHBOARD_METRICS_SCRAPER_IMAGE_VERSION} \
     docker-archive:/local/dashboard/image-metrics-scraper-v${K8S_DASHBOARD_METRICS_SCRAPER_IMAGE_VERSION}.tar:docker.io/kubernetesui/metrics-scraper:v${K8S_DASHBOARD_METRICS_SCRAPER_IMAGE_VERSION}
 # compress image archive
-docker run \
+${DOCKER_CMD} run \
     --rm \
     --env http_proxy=$http_proxy \
     --env https_proxy=$https_proxy \
